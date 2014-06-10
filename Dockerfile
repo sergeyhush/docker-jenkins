@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./monit.d /etc/monit/conf.d
 ADD ./plugins.txt /plugins.txt
-ADD ./download_plguins.sh /download_plugins.sh
+ADD ./download_plugins.sh /download_plugins.sh
 ADD ./start.sh /start.sh
 
 RUN apt-get update && apt-get install -y curl net-tools openssh-server \
