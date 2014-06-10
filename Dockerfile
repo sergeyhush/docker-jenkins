@@ -13,6 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD ./monit.d /etc/monit/conf.d
 ADD ./plugins.txt /plugins.txt
 ADD ./download_plugins.sh /download_plugins.sh
+ADD ./jenkins_init_wrapper /jenkins_init_wrapper.sh
 ADD ./start.sh /start.sh
 
 RUN apt-get update && apt-get install -y curl net-tools openssh-server \
