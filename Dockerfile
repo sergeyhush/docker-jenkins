@@ -19,8 +19,11 @@ RUN apt-get update && apt-get install -y curl net-tools openssh-server \
     monit openjdk-7-jre-headless git
 RUN curl http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 RUN echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
-RUN apt-get update && apt-get install -y jenkins=1.566 && service jenkins start
+RUN curl -s -L -o /tmp/jenkins_${JENKINS_VER}_all.deb http://pkg.jenkins-ci.org/debian/binary/jenkins_${JENKINS_VER}_all.deb && \
+        dpkg -i /tmp/jenkins_${JENKINS_VER}_all.deb ; \
+        apt-get -fy install
 
 RUN /download_plugins.sh
 
+EXPOSE 8080 2812 22
 ENTRYPOINT ["/bin/bash", "/start.sh"]
