@@ -10,7 +10,7 @@ ENV JENKINS_PREFIX /jenkins
 ENV JENKINS_ARGS '--webroot=/var/cache/jenkins/war --httpPort=8080 --ajp13Port=-1'
 ENV DEBIAN_FRONTEND noninteractive
 
-ADD ./monid.d /etc/monit/conf.d
+ADD ./monit.d /etc/monit/conf.d
 ADD ./plugins.txt /plugins.txt
 ADD ./download_plguins.sh /download_plugins.sh
 ADD ./start.sh /start.sh
