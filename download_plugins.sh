@@ -30,7 +30,7 @@ done
 # volume is mounted
 mkdir -p /downloaded_plugins
 
-for p in $(cat /plugins_script/plugins.txt)
+for p in $(cat /plugins.txt)
 do
     echo "Adding Jenkins Plugin ${p}..."
     java -jar  ${JENKINS_HOME}/jenkins-cli.jar -s http://127.0.0.1:8181/ install-plugin ${p}
