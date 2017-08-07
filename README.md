@@ -1,10 +1,13 @@
-docker-jenkins
+Jenkins Master
 ==============
-```shell
-REPO=sergey/jenkins
-docker build -t $REPO .
-ID=$(docker run -p 48080:8080 -d $REPO)
-docker ps | grep $ID
-docker logs $ID
-curl -i http://localhost:48080/api/xml
-```
+
+Configuration
+-------------
+
+More details on how to pre-configure Jenkins Master instance can be found [here](master/README.md)
+
+First start
+-----------
+
+Run
+    docker-compose up -d --build

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<scriptApproval plugin="script-security@1.29.1">
+  <approvedScriptHashes/>
+  <approvedSignatures>
+    <string>staticField javaposse.jobdsl.plugin.LookupStrategy JENKINS_ROOT</string>
+    <string>staticField javaposse.jobdsl.plugin.RemovedJobAction DELETE</string>
+    <string>staticField javaposse.jobdsl.plugin.RemovedViewAction DELETE</string>
+  </approvedSignatures>
+</scriptApproval>
