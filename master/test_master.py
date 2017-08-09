@@ -4,7 +4,7 @@ import requests
 
 @pytest.fixture()
 def jenkins_url():
-    return "http://localhost:8080"
+    return "http://127.0.0.1:80"
 
 
 def is_url_up(u):
