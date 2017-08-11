@@ -30,6 +30,5 @@ before_script:
   - pip install pytest requests
 
 script:
-  - docker info
-  - docker container logs master
+  - sleep 5
   - pytest
