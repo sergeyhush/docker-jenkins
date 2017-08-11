@@ -31,4 +31,5 @@ before_script:
 
 script:
   - docker info
+  - docker container master logs master
   - pytest
