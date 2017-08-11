@@ -22,13 +22,11 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 install:
-  - docker build -t master master/
-  - docker container run -d -p 127.0.0.1:80:8080 --name master master
-  - docker container ls | grep -q master
+  - docker-compose up --build -d
 
 before_script:
   - pip install pytest requests
 
 script:
-  - sleep 60
+  - sleep 40
   - pytest

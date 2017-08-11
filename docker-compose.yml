@@ -1,10 +1,8 @@
 version: '3'
 services:
-  jenkinsmaster:
+  master:
     build:
       context: master/
-    environment:
-      - JAVA_OPTS="-Xmx2048m"
     ports:
-      - "8081:8080"
+      - "80:8080"
       - "50001:50000"
