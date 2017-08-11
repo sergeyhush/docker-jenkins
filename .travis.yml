@@ -30,5 +30,5 @@ before_script:
   - pip install pytest requests
 
 script:
-  - sleep 15
+  - sleep 60
   - pytest
