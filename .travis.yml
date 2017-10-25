@@ -1,6 +1,6 @@
 os: linux
 sudo: required
-language: java
+# language: java
 python:
   - "2.7"
 
