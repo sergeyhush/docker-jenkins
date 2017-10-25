@@ -1,6 +1,6 @@
 os: linux
 sudo: required
-# language: java
+language: java
 python:
   - "2.7"
 
@@ -25,7 +25,7 @@ env:
     - docker-compose up --build -d
 
   before_script:
-    - pip install --user pytest requests
+    - pip install pytest requests
 
   script:
     - sleep 40
