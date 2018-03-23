@@ -65,6 +65,7 @@ plain-credentials:1.4
 pubsub-light:1.12
 scm-api:2.2.0
 script-security:1.29.1
+slack:2.3
 sse-gateway:1.15
 ssh-credentials:1.13
 ssh-slaves:1.20
