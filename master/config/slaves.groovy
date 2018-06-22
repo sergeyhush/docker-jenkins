@@ -36,7 +36,7 @@ properties.slaves.each { name, slave ->
             break
     }
     DumbSlave dumb = new DumbSlave(
-        slave.name,
+        name,
         slave.description,
         slave.remoteFS,
         slave.executors,
