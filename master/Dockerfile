@@ -4,6 +4,7 @@ LABEL Maintainer="sergey@sudakovich.com" Version="1.2"
 # Init hooks
 COPY config/*.groovy /usr/share/jenkins/ref/init.groovy.d/
 COPY config/*.properties ${JENKINS_HOME}/
+COPY config/*.properties ${JENKINS_HOME}/props/
 # Script Approval
 COPY config/scriptApproval.xml ${JENKINS_HOME}/
 

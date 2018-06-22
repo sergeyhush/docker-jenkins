@@ -3,7 +3,11 @@ import jenkins.model.*
 import hudson.model.*
 
 def home_dir = System.getenv("JENKINS_HOME")
-def properties = new ConfigSlurper().parse(new File("$home_dir/security.properties").toURI().toURL())
+def propFile = new File("${home_dir}/props/security.properties")
+if (!propFile.exists()){
+    propFile = new File("${home_dir}/security.properties")
+}
+def properties = new ConfigSlurper().parse(propFile.toURI().toURL())
 
 // JobDSL security is enabled by default
 if(properties.scriptSecurity.jobDsl == false) {

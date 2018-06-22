@@ -7,7 +7,11 @@ import hudson.model.Node.*
 
 
 def home_dir = System.getenv("JENKINS_HOME")
-def properties = new ConfigSlurper().parse(new File("$home_dir/slaves.properties").toURI().toURL())
+def propFile = new File("${home_dir}/props/slaves.properties")
+if (!propFile.exists()){
+    propFile = new File("${home_dir}/slaves.properties")
+}
+def properties = new ConfigSlurper().parse(propFile.toURI().toURL())
 
 println properties
 

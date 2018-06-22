@@ -7,7 +7,12 @@ import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition
 
 
 def home_dir = System.getenv("JENKINS_HOME")
-def properties = new ConfigSlurper().parse(new File("${home_dir}/jenkins.properties").toURI().toURL())
+def propFile = new File("${home_dir}/props/jenkins.properties")
+if (!propFile.exists()){
+    propFile = new File("${home_dir}/jenkins.properties")
+}
+def properties = new ConfigSlurper().parse(propFile.toURI().toURL())
+
 properties.seedjobs.each {
     println "--> Remove ${it.value.name} seed job if already exists"
     def job = Jenkins.instance.getJob(it.value.name)

@@ -4,7 +4,11 @@ import hudson.security.*
 import jenkins.security.plugins.ldap.*;
 
 def home_dir = System.getenv("JENKINS_HOME")
-def properties = new ConfigSlurper().parse(new File("$home_dir/security.properties").toURI().toURL())
+def propFile = new File("${home_dir}/props/security.properties")
+if (!propFile.exists()){
+    propFile = new File("${home_dir}/security.properties")
+}
+def properties = new ConfigSlurper().parse(propFile.toURI().toURL())
 
 if (properties.ldap.enabled) {
     println '--> Configure LDAP'
