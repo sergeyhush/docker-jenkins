@@ -1,5 +1,5 @@
-FROM jenkinsci/jenkins:2.60.3
-LABEL Maintainer="sergey@sudakovich.com" Version="1.2"
+FROM jenkinsci/jenkins:2.62
+LABEL Maintainer="sergey@sudakovich.com" Version="1.3"
 
 # Init hooks
 COPY config/*.groovy /usr/share/jenkins/ref/init.groovy.d/
