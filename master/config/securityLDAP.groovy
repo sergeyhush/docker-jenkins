@@ -10,8 +10,21 @@ if (!propFile.exists()){
 }
 def properties = new ConfigSlurper().parse(propFile.toURI().toURL())
 
+
 if (properties.ldap.enabled) {
     println '--> Configure LDAP'
+    def strategy = null
+    switch (properties.ldap.groupMembershipFilter) {
+        case "FromGroupSearchLDAPGroupMembershipStrategy":
+            strategy = new FromGroupSearchLDAPGroupMembershipStrategy(properties.ldap.groupMembershipSearchFilter)
+            break
+        case "FromUserRecordLDAPGroupMembershipStrategy":
+            strategy = new FromUserRecordLDAPGroupMembershipStrategy(properties.ldap.groupMembershipAttribute)
+            break
+        default:
+            println "Unsupported group membership strategy: " + properties.ldap.groupMembershipFilter
+    }
+
     SecurityRealm ldap_realm = new LDAPSecurityRealm(
         properties.ldap.server,
         properties.ldap.rootDN,
@@ -19,7 +32,7 @@ if (properties.ldap.enabled) {
         properties.ldap.userSearch,
         properties.ldap.groupSearchBase,
         properties.ldap.groupSearchFilter,
-        new FromUserRecordLDAPGroupMembershipStrategy(),
+        strategy,
         properties.ldap.managerDN,
         properties.ldap.managerPassword,
         properties.ldap.inhibitInferRootDN,
